@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Firdavs Portfolio</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #0a0a0a;
+    color: white;
+}
+
+/* HEADER */
+header {
+    text-align: center;
+    padding: 80px 20px;
+    background: linear-gradient(135deg, #111, #1f1f1f);
+}
+
+header h1 {
+    font-size: 50px;
+}
+
+header p {
+    opacity: 0.6;
+}
+
+/* SECTIONS */
+section {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+/* CARDS */
+.cards {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.card {
+    width: 260px;
+    padding: 25px;
+    border-radius: 20px;
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(10px);
+    transition: 0.4s;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+/* HOVER ЭФФЕКТ */
+.card:hover {
+    transform: translateY(-10px) scale(1.05);
+    background: rgba(0, 150, 255, 0.2);
+    box-shadow: 0 20px 40px rgba(0,150,255,0.3);
+}
+
+/* АНИМАЦИЯ */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease;
+}
+
+.fade-in.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 20px;
+    opacity: 0.5;
+}
+</style>
+
+</head>
+<body>
+
+<header class="fade-in">
+    <h1>Firdavs</h1>
+    <p>Frontend Developer</p>
+</header>
+
+<section class="about fade-in">
+    <h2>Обо мне</h2>
+    <p>Создаю современные сайты с анимациями и крутым дизайном.</p>
+</section>
+
+<section class="projects">
+    <h2 class="fade-in">Мои проекты</h2>
+
+    <div class="cards">
+        <div class="card fade-in">
+            <h3>Сайт магазина</h3>
+            <p>Красивый интернет-магазин</p>
+        </div>
+
+        <div class="card fade-in">
+            <h3>UI Дизайн</h3>
+            <p>Минималистичный интерфейс</p>
+        </div>
+
+        <div class="card fade-in">
+            <h3>Анимации</h3>
+            <p>CSS и JS эффекты</p>
+        </div>
+    </div>
+</section>
+
+<section class="contact fade-in">
+    <h2>Контакты</h2>
+    <p>Email: your@email.com</p>
+    <p>Telegram: @yourusername</p>
+</section>
+
+<footer>
+    <p>© 2026 Firdavs</p>
+</footer>
+
+<script>
+const elements = document.querySelectorAll(".fade-in");
+
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+        }
+    });
+});
+
+elements.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
